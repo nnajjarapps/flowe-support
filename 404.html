@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flowe — You're invited to book a Pilates instructor</title>
+  <meta name="description" content="You've been invited to book a Pilates instructor on Flowe. Download the app to view their profile and request a session.">
+  <style>
+    :root { --ink:#2b1a22; --muted:#8a7480; --pink:#d6407f; --pinkDeep:#b12d66; --pinkSoft:#f7dbe8; --bg:#fffafc; --card:#fff; --border:#f0dce6; }
+    @media (prefers-color-scheme: dark){ :root{ --ink:#f4e9ef; --muted:#b199a6; --pink:#ff6fa5; --pinkDeep:#ff8fb9; --pinkSoft:#3a2430; --bg:#191016; --card:#221722; --border:#3a2a34; } }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--bg); }
+    .wrap { max-width:520px; margin:0 auto; padding:0 20px; }
+    .hero { text-align:center; padding:72px 20px 32px; }
+    .logo { display:inline-flex; width:64px; height:64px; border-radius:18px; background:linear-gradient(135deg,#ff6fa5,#d6407f); align-items:center; justify-content:center; color:#fff; font-size:32px; box-shadow:0 10px 30px rgba(214,64,127,.25); }
+    h1 { font-size:30px; letter-spacing:-.02em; margin:22px 0 10px; }
+    h1 em { font-style:italic; color:var(--pink); }
+    .tag { font-size:17px; color:var(--muted); }
+    .cta { display:inline-block; margin-top:28px; font-size:16px; font-weight:600; color:#fff; background:linear-gradient(135deg,#ff6fa5,#d6407f); padding:15px 30px; border-radius:999px; box-shadow:0 10px 30px rgba(214,64,127,.25); }
+    .cta:hover { text-decoration:none; opacity:.92; }
+    .note { margin-top:18px; font-size:13px; color:var(--muted); }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:20px 22px; margin-top:32px; text-align:center; }
+    .card p { margin:0; color:var(--muted); font-size:15px; }
+    footer { text-align:center; color:var(--muted); font-size:13px; margin:48px 0 40px; }
+    a { color:var(--pink); text-decoration:none; } a:hover{ text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <span class="logo">✦</span>
+    <h1>You're invited to book a <em>Pilates</em> instructor on Flowe.</h1>
+    <p class="tag">Flowe connects Pilates students with independent instructors. Download the app to view this instructor's profile and request a session.</p>
+    <!-- App Store URL is a PLACEHOLDER until the app ships. -->
+    <a class="cta" id="appstore" href="https://apps.apple.com/app/flowe">Download on the App Store</a>
+    <p class="note">Already have Flowe? Opening this link on your iPhone will take you straight to the profile.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <p>Flowe never takes a cut of your lesson fees — students and instructors settle directly.</p>
+    </div>
+    <footer>
+      <a href="/flowe-support/">About Flowe</a> · <a href="/flowe-support/support.html">Support</a> · © 2026 Flowe
+    </footer>
+  </div>
+
+  <script>
+    // The invite path is /flowe-support/i/<ownerID>. Read the id but never display it —
+    // it's an opaque record identifier, not user-facing text.
+    (function () {
+      var parts = location.pathname.split('/').filter(Boolean);
+      var i = parts.indexOf('i');
+      var id = (i !== -1 && parts.length > i + 1) ? parts[i + 1] : '';
+      if (!id) return;
+      // If Flowe is installed, the OS opens the app for this Universal Link before this page ever
+      // renders. Re-asserting the same https URL nudges the app on a warm relaunch; if it isn't
+      // installed the "Get Flowe" content above stays put. Never expose the id in a query string.
+    })();
+  </script>
+</body>
+</html>
