@@ -34,22 +34,26 @@
 
     <p>Flowe ("Flowe", "we", "us") connects Pilates students with independent instructors. This policy explains what information the Flowe iOS app handles, how it is used, and the choices you have. We built Flowe to collect as little as possible.</p>
 
-    <h2>How Flowe is built</h2>
-    <p>Flowe has no separate company servers. Your data is stored in <b>Apple iCloud (CloudKit)</b> under your own Apple Account. Information you make public — such as an instructor profile or a community post — is stored in a shared area of iCloud so other Flowe users can see it. Private information stays in your personal iCloud storage.</p>
+    <h2>Where your data lives</h2>
+    <p>Flowe keeps your data in two places. Most of it — your instructor profile, community posts, events and your own cached activity — is stored in <b>Apple iCloud (CloudKit)</b> under your own Apple Account; public information such as an instructor profile lives in a shared area of iCloud so other signed-in Flowe users can see it.</p>
+    <p>To connect two people securely — and to make sure only the right people can see a booking, a class roster or who's attending an event — Flowe also runs its own small backend, hosted on <b>Cloudflare</b> in the EU. It stores your booking requests and their status, event registrations, the reviews you write, your display name, your optional "active / last seen" presence, and, if you enable notifications, your device's push token. This server-side data is <b>readable by Flowe</b>, the operator, in order to run these features — it is <b>not</b> end-to-end encrypted.</p>
+    <p>The exceptions are <b>direct messages</b> and <b>instructor client notes</b>: both are <b>end-to-end encrypted</b>, so even we cannot read them — only the participants, or the instructor who wrote the note.</p>
 
     <h2>Information we handle</h2>
     <ul>
       <li><b>Account &amp; identity.</b> When you use Sign in with Apple, we receive your name and an email address (which may be Apple's private relay). This identifies your account.</li>
       <li><b>Profile information.</b> If you list as an instructor, the details you add — display name, photo, bio, specialties, rates, and your <b>exact studio address and precise map location</b> — are shown publicly so signed-in students can find and reach you. People browsing without an account see only your general area, not the exact address.</li>
-      <li><b>Bookings.</b> Session requests you make or receive, including the chosen day, time and type.</li>
+      <li><b>Bookings &amp; reviews.</b> Session requests you make or receive (day, time and type), and reviews you write after a session.</li>
       <li><b>Messages.</b> Direct messages between users. Message contents are <b>end-to-end encrypted</b> — only you and the person you're messaging can read them.</li>
-      <li><b>Community content.</b> Posts and photos you choose to share.</li>
+      <li><b>Community content.</b> Posts, events and photos you choose to share, and event registrations.</li>
+      <li><b>Presence (optional).</b> If you turn on the "active / last seen" indicator, we store when you were last active so people you message can see it. It is off by default, only visible to people you can also see, and you can turn it off any time.</li>
       <li><b>Location.</b> If you tap "Use my location," a student's location is used <b>on their own device</b> to sort instructors by distance and is <b>never uploaded or stored</b>. An instructor who publishes a teaching location shares their <b>exact studio address and precise coordinates</b>, which are stored on their public listing and shown to signed-in students (and plotted on the map). If you don't want your exact address to be public, don't publish a studio location.</li>
+      <li><b>Notifications (optional).</b> If you allow them, your device's push token, so we can alert you about a request, a reply or a session.</li>
       <li><b>Instructor client notes (health-related).</b> If you teach, you can keep private notes about your own clients that may include health details you record for safety — such as injuries, pregnancy or medical conditions. These notes are <b>end-to-end encrypted</b>: stored as ciphertext only your device can read, never shown to the student or any other user, and never used for advertising.</li>
     </ul>
 
     <h2>How we use it</h2>
-    <p>Only to make the app work: to sign you in, show instructor profiles, let you book and message, and display community content you choose to share. We do <b>not</b> use your information for advertising or profiling.</p>
+    <p>Only to make the app work: to sign you in, show instructor profiles, let you book and message, decide who is allowed to see each booking or roster, and display community content you choose to share. We do <b>not</b> use your information for advertising or profiling.</p>
 
     <h2>What we don't do</h2>
     <ul>
@@ -61,12 +65,20 @@
     <h2>Payments</h2>
     <p>Flowe takes no payment for lessons — you settle directly with your instructor. Optional instructor subscriptions (Visible / Boost) are purchased and billed by <b>Apple</b>; Apple handles that payment information under its own privacy policy. Manage subscriptions in <b>Settings → [your name] → Subscriptions</b>.</p>
 
-    <h2>Sharing</h2>
-    <p>Information you mark as public (your instructor profile, community posts) is visible to other Flowe users. We otherwise share personal information only with <b>Apple</b> (iCloud storage and in-app purchases) as needed to run the app, or where required by law.</p>
+    <h2>Who we share it with</h2>
+    <p>Information you mark as public (your instructor profile, community posts) is visible to other Flowe users. Otherwise we share personal information only with the companies that help us run the app — under contract and only for that purpose:</p>
+    <ul>
+      <li><b>Apple</b> — Sign in with Apple, iCloud storage, push notifications, and in-app purchases.</li>
+      <li><b>Cloudflare</b> — hosts Flowe's backend and database (in the EU); it processes this data only to run the service for us, not for its own purposes.</li>
+    </ul>
+    <p>We do not sell your data or share it with advertisers or data brokers, except where required by law.</p>
+
+    <h2>How long we keep it</h2>
+    <p>We keep your data while your account is active. When you delete your account, the data you created is removed from Apple's iCloud and from Flowe's server, except where we must keep a limited record to meet a legal obligation or resolve a dispute. Aggregate ratings — with no name attached — may remain on an instructor's profile.</p>
 
     <h2>Your choices &amp; rights</h2>
     <ul>
-      <li><b>Delete your account.</b> In the app: <b>Settings → Delete Account</b>. This removes your data.</li>
+      <li><b>Delete your account.</b> In the app: <b>Settings → Delete Account</b>. This erases the data you created from <b>both</b> Apple's iCloud and Flowe's own server (booking requests, event registrations, reviews you wrote, your profile, presence and device tokens).</li>
       <li><b>Block or report.</b> Use the ⋯ menu on a profile or in a message thread.</li>
       <li><b>Access or questions.</b> Email us and we'll help — see below.</li>
     </ul>
