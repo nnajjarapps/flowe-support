@@ -4,7 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Flowe — You're invited to book a Pilates instructor</title>
-  <meta name="description" content="You've been invited to book a Pilates instructor on Flowe. Download the app to view their profile and request a session.">
+  <meta name="description" content="You've been invited to book a Pilates instructor on Flowe. Get the app to view their profile and request a session.">
+
+  <!-- Link preview (WhatsApp / iMessage / Instagram / Twitter). Absolute URLs required.
+       Note: GitHub Pages serves this via 404.html, so the HTTP status is 404 even though the body
+       is the real landing — most chat apps still render this card from the body, but a strict
+       crawler may skip it. A 200 preview needs a dynamic host (see the Cloudflare option). -->
+  <link rel="canonical" href="https://nnajjarapps.github.io/flowe-support/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Flowe">
+  <meta property="og:title" content="You're invited to book a Pilates instructor on Flowe">
+  <meta property="og:description" content="Flowe connects Pilates students with independent instructors. Get the app to view the profile and book a session.">
+  <meta property="og:image" content="https://nnajjarapps.github.io/flowe-support/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Book your Pilates instructor on Flowe">
+  <meta name="twitter:description" content="You've been invited to book on Flowe. Get the app to view the profile and request a session.">
+  <meta name="twitter:image" content="https://nnajjarapps.github.io/flowe-support/og.png">
+
   <style>
     :root { --ink:#2b1a22; --muted:#8a7480; --pink:#d6407f; --pinkDeep:#b12d66; --pinkSoft:#f7dbe8; --bg:#fffafc; --card:#fff; --border:#f0dce6; }
     @media (prefers-color-scheme: dark){ :root{ --ink:#f4e9ef; --muted:#b199a6; --pink:#ff6fa5; --pinkDeep:#ff8fb9; --pinkSoft:#3a2430; --bg:#191016; --card:#221722; --border:#3a2a34; } }
@@ -29,10 +47,9 @@
   <div class="hero">
     <span class="logo">✦</span>
     <h1>You're invited to book a <em>Pilates</em> instructor on Flowe.</h1>
-    <p class="tag">Flowe connects Pilates students with independent instructors. Download the app to view this instructor's profile and request a session.</p>
-    <!-- App Store URL is a PLACEHOLDER until the app ships. -->
-    <a class="cta" id="appstore" href="https://apps.apple.com/app/flowe">Download on the App Store</a>
-    <p class="note">Already have Flowe? Opening this link on your iPhone will take you straight to the profile.</p>
+    <p class="tag">Flowe connects Pilates students with independent instructors. Get the app to view this instructor's profile and request a session.</p>
+    <a class="cta" id="appstore" href="#">Get Flowe on the App Store</a>
+    <p class="note">Already have Flowe? Opening this link on your iPhone takes you straight to the profile.</p>
   </div>
 
   <div class="wrap">
@@ -45,16 +62,21 @@
   </div>
 
   <script>
-    // The invite path is /flowe-support/i/<ownerID>. Read the id but never display it —
-    // it's an opaque record identifier, not user-facing text.
     (function () {
+      // ▼▼▼ UPDATE THIS ONE LINE when the app ships (or paste a public TestFlight link meanwhile). ▼▼▼
+      var APP_STORE_URL = "https://apps.apple.com/app/flowe";
+      // ▲▲▲ The whole page points at this; nothing else needs editing. ▲▲▲
+
+      document.getElementById('appstore').href = APP_STORE_URL;
+
+      // The invite path is /flowe-support/i/<ownerID>. Read the id but never DISPLAY it — it's an
+      // opaque record identifier, not user-facing text. If Flowe is installed, the OS opens the app
+      // for this Universal Link before this page ever renders, so this landing is only seen by people
+      // who don't have the app yet — the App Store button is what they need.
       var parts = location.pathname.split('/').filter(Boolean);
       var i = parts.indexOf('i');
       var id = (i !== -1 && parts.length > i + 1) ? parts[i + 1] : '';
-      if (!id) return;
-      // If Flowe is installed, the OS opens the app for this Universal Link before this page ever
-      // renders. Re-asserting the same https URL nudges the app on a warm relaunch; if it isn't
-      // installed the "Get Flowe" content above stays put. Never expose the id in a query string.
+      if (id) { try { sessionStorage.setItem('flowe_invite', id); } catch (e) {} }
     })();
   </script>
 </body>
