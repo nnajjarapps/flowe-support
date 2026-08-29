@@ -1,0 +1,130 @@
+/* Flowe — shared web theme.
+   Palette and type mirror the iOS app's design system 1:1:
+   Flowe/DesignSystem/FlowColor.swift + FlowTypography.swift
+   Serif Fraunces (headings) · Sans DM Sans (body) · Mono DM Mono (meta labels) */
+
+:root{
+  --cream:#FAF6F2;      /* flowWarmCream  — page ground */
+  --beige:#F2EAE3;      /* flowSoftBeige */
+  --card:#FFFFFF;
+  --cardTint:#FFF0F4;   /* floweCardBg */
+  --ink:#2D1520;        /* floweInk */
+  --espresso:#4E3B31;   /* flowEspressoBrown */
+  --muted:#86586A;      /* floweMuted — AA on white */
+  --pink:#E8789A;       /* flowePink */
+  --pinkDeep:#B23E63;   /* flowePinkDeep — AA as text */
+  --pinkSoft:#F4A8C0;
+  --blush:#F3C9CF;
+  --rose:#D98C95;       /* flowDustyRose */
+  --border:rgba(232,120,154,.20);
+  --shadow:0 10px 30px rgba(178,62,99,.10);
+  --radius:16px;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --cream:#1A1015; --beige:#241820; --card:#221720; --cardTint:#2A1B24;
+    --ink:#F7EDE8; --espresso:#E4CFC2; --muted:#C4A2AE;
+    --pinkDeep:#F4A8C0; --border:rgba(232,120,154,.24);
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font:16px/1.65 "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{ color:var(--pinkDeep); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+.wrap{ max-width:760px; margin:0 auto; padding:0 20px; }
+.wrap--narrow{ max-width:680px; }
+.wrap--doc{ max-width:720px; padding-bottom:64px; }
+
+/* ---- brand mark: the real app icon as a rounded tile ---- */
+.mark{
+  display:block; width:72px; height:72px; margin:0 auto;
+  border-radius:20px; box-shadow:var(--shadow);
+  border:1px solid var(--border);
+}
+.mark--sm{ width:60px; height:60px; border-radius:17px; }
+
+/* ---- headings: Fraunces, with italic accent words ---- */
+h1{
+  font-family:"Fraunces", Georgia, serif;
+  font-weight:400; font-size:clamp(28px,5vw,36px); line-height:1.2;
+  letter-spacing:-.015em; margin:22px 0 10px;
+}
+h1 em{ font-style:italic; color:var(--pinkDeep); }
+
+h2{
+  font-family:"DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size:12px; font-weight:400; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--muted); margin:44px 0 14px;
+}
+
+h3{
+  font-family:"Fraunces", Georgia, serif;
+  font-weight:400; font-size:17px; line-height:1.35; margin:0 0 5px;
+}
+
+p{ margin:0 0 12px; }
+ul{ margin:0 0 12px; padding-left:20px; }
+li{ margin:5px 0; }
+
+.lede{ color:var(--muted); font-size:17px; margin:0; }
+.updated{ font-family:"DM Mono", monospace; font-size:12px; color:var(--muted);
+          letter-spacing:.06em; margin-top:6px; }
+
+/* ---- surfaces ---- */
+.card{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:18px 20px; margin:12px 0;
+}
+.card p{ margin:0; color:var(--muted); font-size:15px; }
+.card--tint{ background:var(--cardTint); }
+
+.grid{ display:grid; gap:12px; grid-template-columns:1fr 1fr; }
+@media (max-width:560px){ .grid{ grid-template-columns:1fr; } }
+.grid .card{ margin:0; }
+
+.hero{ text-align:center; padding:64px 20px 40px; }
+.hero .tag{ font-size:18px; color:var(--muted); max-width:540px; margin:0 auto; }
+
+header.doc{ text-align:center; margin:0 0 34px; padding-top:40px; }
+header.doc h1{ font-size:clamp(24px,4vw,30px); }
+
+.badge{
+  display:inline-block; margin-top:22px;
+  font-family:"DM Mono", monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--pinkDeep); background:var(--blush);
+  padding:9px 16px; border-radius:999px;
+}
+
+.cta{
+  display:inline-block; margin-top:28px;
+  font-size:16px; font-weight:500; color:#fff;
+  background:linear-gradient(135deg, var(--pink), var(--pinkDeep));
+  padding:15px 30px; border-radius:999px; box-shadow:var(--shadow);
+}
+.cta:hover{ text-decoration:none; opacity:.93; }
+
+.contact{
+  text-align:center; background:var(--cardTint); border:1px solid var(--border);
+  border-radius:var(--radius); padding:22px; margin:8px 0 4px;
+}
+.contact .email{ font-family:"Fraunces", Georgia, serif; font-size:20px; margin-top:4px; }
+
+.note{ margin-top:18px; font-size:13px; color:var(--muted); }
+
+footer{
+  text-align:center; color:var(--muted); font-size:13px;
+  margin:56px 0 48px; padding-top:24px; border-top:1px solid var(--border);
+}
+footer a{ color:var(--muted); }
